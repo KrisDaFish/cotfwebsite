@@ -317,6 +317,20 @@ footer {
     line-height: 1.6;
 }
 
+.course-step-rectangle {
+    min-width: 220px;
+    width: auto;
+    flex: 1 1 280px;
+    border-radius: 18px;
+    margin-bottom: 32px;
+    margin-top: 0;
+    display: block;
+}
+
+.step4 {
+    color: #fff;
+}
+
 .site-footer {
     width: 100%;
     background: #222;
