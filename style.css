@@ -126,7 +126,7 @@ body, html {
     border-radius: 24px;
     text-decoration: none;
     box-shadow: 0 2px 12px #000a, 0 1px 0 #fff2 inset;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+    transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
     letter-spacing: 0.5px;
     cursor: pointer;
     outline: none;
@@ -145,13 +145,14 @@ body, html {
 }
 
 .register-btn:hover, .register-btn:focus, .about-btn:hover, .about-btn:focus {
-    background: linear-gradient(120deg, #fff 0%, #e6e7e9 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #fff 100%);
+    /* Use a slightly lighter metallic gradient, but keep the animation and avoid pure white */
+    background: linear-gradient(120deg, #e6e7e9 0%, #fff 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #e6e7e9 100%);
     background-size: 300% 300%;
     background-position: 100% 50%;
     color: #111 !important;
     box-shadow: 0 4px 24px #fff2, 0 2px 12px #000a;
     transform: translateY(-2px) scale(1.04);
-    animation: metallic-gradient-move 2s linear infinite alternate;
+    animation: metallic-gradient-move 6s linear infinite alternate;
 }
 
 .register-btn:active, .about-btn:active {
