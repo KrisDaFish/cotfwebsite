@@ -181,6 +181,22 @@ body, html {
     border-radius: 18px;
     box-shadow: 0 4px 32px #000a;
 }
+.hero-illustration.no-box {
+    box-shadow: none !important;
+    background: none !important;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-illustration.no-box img {
+    width: 240px;
+    height: 240px;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+}
 .stats-section {
     display: flex;
     justify-content: space-between;
