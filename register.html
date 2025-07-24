@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Coders of the Future</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .register-section {
+            background: #181818;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px #000a;
+            max-width: 900px;
+            margin: 100px auto 48px auto;
+            padding: 48px 32px 48px 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 32px;
+        }
+        .register-info {
+            flex: 2 1 340px;
+            min-width: 260px;
+        }
+        .register-title {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        .register-subtitle {
+            color: #bbb;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+        .register-dates {
+            color: #fff;
+            font-size: 1.18rem;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+        .register-dates span {
+            display: block;
+            margin-bottom: 6px;
+        }
+        .register-note {
+            color: #bbb;
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        .register-more {
+            color: #fff;
+            font-size: 1.08rem;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        .register-actions {
+            flex: 1 1 260px;
+            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+        }
+        .register-glossy-btn {
+            display: block;
+            width: 100%;
+            max-width: 260px;
+            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
+            background-size: 300% 300%;
+            background-position: 0% 50%;
+            color: #222;
+            font-weight: 700;
+            font-size: 1.15rem;
+            padding: 18px 0;
+            border: none;
+            border-radius: 32px;
+            text-decoration: none;
+            box-shadow: 0 2px 16px #000a, 0 1px 0 #fff2 inset;
+            transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            animation: metallic-gradient-move 6s linear infinite alternate;
+        }
+        .register-glossy-btn:hover, .register-glossy-btn:focus {
+            background: linear-gradient(120deg, #e6e7e9 0%, #fff 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #e6e7e9 100%);
+            background-size: 300% 300%;
+            background-position: 100% 50%;
+            color: #111 !important;
+            box-shadow: 0 4px 24px #fff2, 0 2px 12px #000a;
+            transform: translateY(-2px) scale(1.04);
+            animation: metallic-gradient-move 6s linear infinite alternate;
+        }
+        .register-glossy-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+        }
+        .register-action-desc {
+            color: #bbb;
+            font-size: 1rem;
+            margin-top: 8px;
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .register-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 32px 8px 32px 8px;
+            }
+            .register-actions {
+                flex-direction: row;
+                gap: 18px;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .register-section {
+                margin: 80px 0 24px 0;
+                padding: 18px 2px 18px 2px;
+            }
+            .register-title {
+                font-size: 1.3rem;
+            }
+            .register-dates {
+                font-size: 1rem;
+            }
+            .register-glossy-btn {
+                font-size: 1rem;
+                padding: 12px 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-nav">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" />
+                <span class="logo-text">CODERS OF<br>THE FUTURE</span>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Meet the Team</a></li>
+                    <li><a href="register.html" class="active">Register</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="register-section">
+            <div class="register-info">
+                <div class="register-subtitle">CODERS OF THE FUTURE</div>
+                <div class="register-title">REGISTRATION</div>
+                <div class="register-dates">
+                    <span><strong>START DATES</strong></span>
+                    <span>February 2nd - April 26th</span>
+                    <span>April 24th - July 3rd</span>
+                    <span>July 24th - October 2nd</span>
+                </div>
+                <div class="register-note">Every Saturday 6-7 PM IST</div>
+                <div class="register-more">MORE DATES AND TIMINGS COMING SOON!</div>
+            </div>
+            <div class="register-actions">
+                <a href="https://forms.gle/your-google-form-link" class="register-glossy-btn" target="_blank" rel="noopener">SIGN UP AS A STUDENT!</a>
+                <div class="register-action-desc">We accept students from anywhere in the world!</div>
+                <a href="mailto:your@email.com" class="register-glossy-btn">BECOME A TEACHER!</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong>Coders of the Future</strong><br>
+                Founded by: Krish Palasamudrum, Amogh Pindikur, and Abhimanyu Batta<br>
+                Website designed by: Krish Palasamudrum and Abhimanyu Batta
+            </div>
+            <div class="footer-icons">
+                <a href="#" class="footer-icon" aria-label="Facebook"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M18.5 16.5h2l.5-3h-2.5v-1.5c0-.8.2-1.2 1.3-1.2H21V8.7c-.2 0-.9-.1-1.7-.1-2.1 0-3.3 1.1-3.3 3.1V13.5H14v3h2v7h3v-7z" fill="#fff"/></svg></a>
+                <a href="#" class="footer-icon" aria-label="Email"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M8 12v8h16v-8H8zm8 5.5l-8-5.5h16l-8 5.5z" fill="#fff"/></svg></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
