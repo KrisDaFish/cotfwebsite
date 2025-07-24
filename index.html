@@ -168,95 +168,6 @@
         font-size: 0.92rem;
     }
 }
-.hero-fullscreen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #111;
-    position: relative;
-    z-index: 2;
-}
-.hero-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.hero-big {
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: #fff;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
-}
-.hero-sub {
-    color: #bbb;
-    font-size: 1.3rem;
-    font-weight: 500;
-    margin-bottom: 32px;
-    letter-spacing: 0.5px;
-}
-#main-content-reveal.main-content-hidden {
-    opacity: 0;
-    pointer-events: none;
-    filter: blur(8px);
-    transition: opacity 0.7s, filter 0.7s;
-    height: 0;
-    overflow: hidden;
-}
-#main-content-reveal.main-content-visible {
-    opacity: 1;
-    pointer-events: auto;
-    filter: none;
-    transition: opacity 0.7s, filter 0.7s;
-    height: auto;
-    overflow: visible;
-}
-@media (max-width: 700px) {
-    .hero-big {
-        font-size: 1.5rem;
-    }
-    .hero-sub {
-        font-size: 1rem;
-    }
-}
-.learn-more-btn {
-    margin: 32px auto 0 auto;
-    display: block;
-    background: linear-gradient(120deg, #e6e7e9 0%, #fff 40%, #bfc1c6 100%);
-    color: #222;
-    font-weight: 700;
-    font-size: 1.08rem;
-    padding: 12px 32px;
-    border: none;
-    border-radius: 24px;
-    box-shadow: 0 2px 12px #000a, 0 1px 0 #fff2 inset;
-    transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    outline: none;
-    position: absolute;
-    left: 50%;
-    bottom: 32px;
-    transform: translateX(-50%);
-    z-index: 10;
-    animation: metallic-gradient-move 6s linear infinite alternate;
-}
-.learn-more-btn:hover, .learn-more-btn:focus {
-    background: linear-gradient(120deg, #fff 0%, #bfc1c6 60%, #e6e7e9 100%);
-    color: #111 !important;
-    box-shadow: 0 4px 24px #fff2, 0 2px 12px #000a;
-    transform: translateX(-50%) scale(1.04);
-}
-.learn-more-btn:active {
-    transform: translateX(-50%) scale(0.97);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.18);
-}
 </style>
 </head>
 <body>
@@ -278,53 +189,51 @@
         </div>
     </header>
     <main class="main-content">
-        <section class="hero-section hero-fullscreen">
-            <div class="hero-text hero-center">
-                <h1 class="hero-big">Welcome to<br>Coders of the Future</h1>
-                <h2 class="hero-sub">A free program for children aged 10-14 to learn Python.</h2>
-                <a href="register.html" class="register-btn">Register</a>
+        <section class="hero-section">
+            <div class="hero-text" style="text-align:center; margin: 0 auto;">
+                <h1>Welcome to<br>Coders of the Future</h1>
+                <h3 class="for-students" id="typewriter-text"></h3>
+                <a href="https://forms.gle/your-google-form-link" target="_blank" class="register-btn">Register</a>
             </div>
         </section>
-        <div id="main-content-reveal" class="main-content-hidden">
-            <section class="features-section">
-                <div class="feature-card">
-                    <strong>Hands-On Projects</strong>
-                    <div class="feature-desc">Build real skills with real code.</div>
+        <section class="features-section">
+            <div class="feature-card">
+                <strong>Hands-On Projects</strong>
+                <div class="feature-desc">Build real skills with real code.</div>
+            </div>
+            <div class="feature-card">
+                <strong>Zero Fees</strong>
+                <div class="feature-desc">Join and learn for free. </div>
+            </div>
+            <div class="feature-card">
+                <strong>Beginner Friendly</strong>
+                <div class="feature-desc">No experience needed.</div>
+            </div>
+        </section>
+        <section class="course-section">
+            <h2 class="course-title">What You Will Do In This Course</h2>
+            <div class="course-steps">
+                <div class="course-step fade-in-highlight">
+                    <span class="step-number step1">01</span>
+                    <h3>Learn the fundamentals and basics of programming</h3>
+                    <p>This includes the logic behind programming, and the thought-processes. This part of the course will involve interactive activities so students thoroughly understand the concepts, while also having fun.</p>
                 </div>
-                <div class="feature-card">
-                    <strong>Zero Fees</strong>
-                    <div class="feature-desc">Join and learn for free. </div>
+                <div class="course-step fade-in-highlight">
+                    <span class="step-number step2">02</span>
+                    <h3>Learn how to start coding Python</h3>
+                    <p>Learn how to use the logic behind coding in a practical setting. This includes learning how to convey logical operations through flowcharts and diagrams, and then later implementing these operations through python. Using this knowledge, they will learn how to solve basic problems using code/python.</p>
                 </div>
-                <div class="feature-card">
-                    <strong>Beginner Friendly</strong>
-                    <div class="feature-desc">No experience needed.</div>
+                <div class="course-step fade-in-highlight">
+                    <span class="step-number step3">03</span>
+                    <h3>Make your first project in Python</h3>
+                    <p>After learning and developing basic problem-solving skills, use these skills to make your first coding project in Python!</p>
                 </div>
-            </section>
-            <section class="course-section">
-                <h2 class="course-title">What You Will Do In This Course</h2>
-                <div class="course-steps">
-                    <div class="course-step fade-in-highlight">
-                        <span class="step-number step1">01</span>
-                        <h3>Learn the fundamentals and basics of programming</h3>
-                        <p>This includes the logic behind programming, and the thought-processes. This part of the course will involve interactive activities so students thoroughly understand the concepts, while also having fun.</p>
-                    </div>
-                    <div class="course-step fade-in-highlight">
-                        <span class="step-number step2">02</span>
-                        <h3>Learn how to start coding Python</h3>
-                        <p>Learn how to use the logic behind coding in a practical setting. This includes learning how to convey logical operations through flowcharts and diagrams, and then later implementing these operations through python. Using this knowledge, they will learn how to solve basic problems using code/python.</p>
-                    </div>
-                    <div class="course-step fade-in-highlight">
-                        <span class="step-number step3">03</span>
-                        <h3>Make your first project in Python</h3>
-                        <p>After learning and developing basic problem-solving skills, use these skills to make your first coding project in Python!</p>
-                    </div>
-                </div>
-                <div class="course-highlight-alt fade-in-highlight">
-                    <h3>Absolute Beginners Welcome!</h3>
-                    <p>This course is made for absolute beginners in coding and programming! It requires zero prior knowledge or experience, so don't feel intimidated!</p>
-                </div>
-            </section>
-        </div>
+            </div>
+            <div class="course-highlight-alt fade-in-highlight">
+                <h3>Absolute Beginners Welcome!</h3>
+                <p>This course is made for absolute beginners in coding and programming! It requires zero prior knowledge or experience, so don't feel intimidated!</p>
+            </div>
+        </section>
     </main>
     <footer class="site-footer">
         <div class="footer-content">
@@ -340,20 +249,5 @@
         </div>
     </footer>
     <script src="script.js"></script>
-    <script>
-    // Hide main content until scroll
-    function revealMainContentOnScroll() {
-        const reveal = document.getElementById('main-content-reveal');
-        if (window.scrollY > 40) {
-            reveal.classList.add('main-content-visible');
-            reveal.classList.remove('main-content-hidden');
-        } else {
-            reveal.classList.remove('main-content-visible');
-            reveal.classList.add('main-content-hidden');
-        }
-    }
-    window.addEventListener('scroll', revealMainContentOnScroll);
-    window.addEventListener('DOMContentLoaded', revealMainContentOnScroll);
-    </script>
 </body>
 </html> 
