@@ -37,8 +37,27 @@ if (registerBtn) {
         document.body.classList.add('fade-out');
         setTimeout(() => {
             window.location.href = 'register.html';
-        }, 200); // Match the new fast fadeOutPage animation duration
+        }, 600); // Match the new fadeOutPage animation duration
     });
 }
+
+// Smooth transition for all main navigation links
+function isInternalNavLink(link) {
+    // Only animate for links to .html pages in this site, not anchor or external
+    return link.hostname === window.location.hostname &&
+        link.pathname.endsWith('.html') &&
+        link.href !== window.location.href;
+}
+document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (isInternalNavLink(this)) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 600); // Match fadeOutPage animation duration
+        }
+    });
+});
 
 // Placeholder for future interactivity 
