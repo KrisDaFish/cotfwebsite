@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coders of the Future</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+.logo-link {
+    display: inline-block;
+}
+.logo-img {
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    will-change: transform;
+}
+.logo-img:hover {
+    transform: scale(1.12) rotate(-8deg);
+    box-shadow: 0 4px 24px #e6e7e988;
+    cursor: pointer;
+}
+.logo-img:active {
+    transform: scale(0.96) rotate(-2deg);
+}
+</style>
 </head>
 <body>
     <header class="main-header">
         <div class="logo-nav">
             <div class="logo">
-                <img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" />
+                <a href="index.html" class="logo-link"><img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" class="logo-img" /></a>
                 <span class="logo-text">CODERS OF<br>THE FUTURE</span>
             </div>
             <nav>
@@ -18,7 +35,7 @@
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Meet the Team</a></li>
-                    <li><a href="#register">Register</a></li>
+                    <li><a href="register.html">Register</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
@@ -64,7 +81,7 @@
                     <p>Learn how to use the logic behind coding in a practical setting. This includes learning how to convey logical operations through flowcharts and diagrams, and then later implementing these operations through python. Using this knowledge, they will learn how to solve basic problems using code/python.</p>
                 </div>
                 <div class="course-step">
-                    <span class="step-number step3">03</span>
+                    <span class="step-numffber step3">03</span>
                     <h3>Make your first project in Python</h3>
                     <p>After learning and developing basic problem-solving skills, use these skills to make your first coding project in Python!</p>
                 </div>

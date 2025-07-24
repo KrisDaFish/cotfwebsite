@@ -137,13 +137,28 @@
                 max-width: 100%;
             }
         }
+        .logo-link {
+            display: inline-block;
+        }
+        .logo-img {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+            will-change: transform;
+        }
+        .logo-img:hover {
+            transform: scale(1.12) rotate(-8deg);
+            box-shadow: 0 4px 24px #e6e7e988;
+            cursor: pointer;
+        }
+        .logo-img:active {
+            transform: scale(0.96) rotate(-2deg);
+        }
     </style>
 </head>
 <body>
     <header class="main-header">
         <div class="logo-nav">
             <div class="logo">
-                <img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" />
+                <a href="index.html" class="logo-link"><img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" class="logo-img" /></a>
                 <span class="logo-text">CODERS OF<br>THE FUTURE</span>
             </div>
             <nav>
