@@ -582,3 +582,11 @@ footer {
         margin-top: 32px;
     }
 } 
+
+.fade-out {
+    animation: fadeOutPage 0.2s cubic-bezier(.4,2,.6,1) forwards;
+}
+@keyframes fadeOutPage {
+    from { opacity: 1; }
+    to { opacity: 0; }
+} 

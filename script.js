@@ -29,4 +29,16 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Smooth transition for Register button
+const registerBtn = document.getElementById('register-btn');
+if (registerBtn) {
+    registerBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+            window.location.href = 'register.html';
+        }, 200); // Match the new fast fadeOutPage animation duration
+    });
+}
+
 // Placeholder for future interactivity 
