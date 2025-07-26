@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team - Coders of the Future</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .logo-link {
+            display: inline-block;
+        }
+        .logo-img {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+            will-change: transform;
+        }
+        .logo-img:hover {
+            transform: scale(1.12) rotate(-8deg);
+            box-shadow: 0 4px 24px #e6e7e988;
+            cursor: pointer;
+        }
+        .logo-img:active {
+            transform: scale(0.96) rotate(-2deg);
+        }
+
+        /* Team page specific styles */
+        .team-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            padding: 16px 0;
+        }
+        .team-center {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            background: #181818;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px #000a;
+            padding: 40px 40px;
+        }
+        .team-label {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #bbb;
+            margin-bottom: 8px;
+        }
+        .team-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 0 0 12px 0;
+            color: #fff;
+        }
+        .team-desc {
+            font-size: 1rem;
+            color: #bbb;
+            font-weight: 400;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .team-member {
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 16px #0005;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-member:hover {
+            background: #2a2a2a;
+            border-color: #555;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px #0008;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .member-role {
+            font-size: 1rem;
+            color: #bbb;
+            margin: 0 0 16px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .member-desc {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #444, #666);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            font-weight: 700;
+            border: 3px solid #555;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .member-photo::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #fff, #bbb, #fff);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .team-member:hover .member-photo::before {
+            opacity: 1;
+        }
+
+        /* Page loading animation */
+        .page-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInPage 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        @keyframes fadeInPage {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 700px) {
+            .team-section {
+                padding: 16px 0;
+            }
+            .team-center {
+                padding: 32px 20px;
+                margin: 0 16px;
+            }
+            .team-title {
+                font-size: 1.8rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .team-member {
+                padding: 24px 20px;
+            }
+            .member-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-nav">
+            <div class="logo">
+                <a href="index.html" class="logo-link"><img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" class="logo-img" /></a>
+                <span class="logo-text">CODERS OF<br>THE FUTURE</span>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="meet the team.html" class="active">Meet the Team</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content page-content">
+        <section class="team-section">
+            <div class="team-center">
+                <div class="team-label">OUR FOUNDERS</div>
+                <h1 class="team-title">Meet the Team</h1>
+                <p class="team-desc">
+                    Meet the passionate minds behind Coders of the Future. We're dedicated to empowering 
+                    the next generation of programmers and innovators.
+                </p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">K</div>
+                        <h3 class="member-name">Krish Palasamudrum</h3>
+                        <p class="member-role">Co-Founder & Web Developer</p>
+                        <p class="member-desc">
+                            Specializing in frontend development with expertise in HTML, CSS, and JavaScript. 
+                            Krish creates responsive and interactive web experiences with modern design principles.
+                        </p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">A</div>
+                        <h3 class="member-name">Abhimanyu Batta</h3>
+                        <p class="member-role">Co-Founder & Web Developer</p>
+                        <p class="member-desc">
+                            Expert in UI/UX design and modern web technologies. Abhimanyu crafts beautiful, 
+                            user-friendly interfaces that combine aesthetics with functionality.
+                        </p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">A</div>
+                        <h3 class="member-name">Amogh Pindikur</h3>
+                        <p class="member-role">Co-Founder</p>
+                        <p class="member-desc">
+                            Backend development specialist with expertise in server-side technologies and databases. 
+                            Amogh builds robust, scalable web applications and APIs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong>Coders of the Future</strong><br>
+                Founded by: Krish Palasamudrum, Amogh Pindikur, and Abhimanyu Batta<br>
+                Website designed by: Krish Palasamudrum and Abhimanyu Batta
+            </div>
+            <div class="footer-icons">
+                <a href="#" class="footer-icon" aria-label="Facebook"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M18.5 16.5h2l.5-3h-2.5v-1.5c0-.8.2-1.2 1.3-1.2H21V8.7c-.2 0-.9-.1-1.7-.1-2.1 0-3.3 1.1-3.3 3.1V13.5H14v3h2v7h3v-7z" fill="#fff"/></svg></a>
+                <a href="#" class="footer-icon" aria-label="Email"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#222"/><path d="M8 12v8h16v-8H8zm8 5.5l-8-5.5h16l-8 5.5z" fill="#fff"/></svg></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 
