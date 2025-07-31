@@ -102,6 +102,14 @@
             transform: scale(0.97);
             box-shadow: 0 1px 4px rgba(0,0,0,0.18);
         }
+        .register-glossy-btn:not(:hover):not(:focus) {
+            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
+            background-size: 300% 300%;
+            background-position: 0% 50%;
+            color: #222;
+            box-shadow: 0 2px 16px #000a, 0 1px 0 #fff2 inset;
+            transform: none;
+        }
         .register-action-desc {
             color: #bbb;
             font-size: 1rem;
@@ -151,6 +159,10 @@
         }
         .logo-img:active {
             transform: scale(0.96) rotate(-2deg);
+        }
+        .logo-img:not(:hover) {
+            transform: none;
+            box-shadow: none;
         }
         .register-fade-in {
             opacity: 0;

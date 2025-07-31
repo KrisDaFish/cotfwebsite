@@ -80,6 +80,15 @@ body, html {
     width: 100%;
 }
 
+/* Ensure navigation hover states are properly reset */
+.nav-list li a:not(:hover):not(.active) {
+    color: #fff;
+    border-bottom: 2px solid transparent;
+}
+.nav-list li a:not(:hover):not(.active)::after {
+    width: 0;
+}
+
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -155,6 +164,16 @@ body, html {
     animation: metallic-gradient-move 6s linear infinite alternate;
 }
 
+/* Ensure hover states are properly reset */
+.register-btn:not(:hover):not(:focus), .about-btn:not(:hover):not(:focus) {
+    background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+    color: #222;
+    box-shadow: 0 2px 12px #000a, 0 1px 0 #fff2 inset;
+    transform: none;
+}
+
 .register-btn:active, .about-btn:active {
     transform: scale(0.97);
     box-shadow: 0 1px 4px rgba(0,0,0,0.18);
@@ -219,6 +238,12 @@ body, html {
 .stat:hover {
     box-shadow: 0 6px 32px #000b;
     transform: translateY(-2px) scale(1.03);
+}
+
+/* Ensure stat hover states are properly reset */
+.stat:not(:hover) {
+    box-shadow: 0 2px 12px #0006;
+    transform: none;
 }
 .stat-number {
     display: block;
@@ -304,6 +329,12 @@ footer {
 .course-step:hover {
     box-shadow: 0 6px 32px #000b;
     transform: translateY(-2px) scale(1.03);
+}
+
+/* Ensure course-step hover states are properly reset */
+.course-step:not(:hover) {
+    box-shadow: 0 2px 16px #0007;
+    transform: none;
 }
 .step-number {
     position: absolute;
@@ -399,6 +430,13 @@ footer {
     color: #222;
     transform: scale(1.08);
 }
+
+/* Ensure footer icon hover states are properly reset */
+.footer-icon:not(:hover):not(:focus) {
+    background: #333;
+    color: #fff;
+    transform: none;
+}
 .footer-icon svg {
     display: block;
 }
@@ -473,6 +511,14 @@ footer {
     box-shadow: 0 4px 24px #000c;
     transform: translateY(-2px) scale(1.04);
 }
+
+/* Ensure about button hover states are properly reset */
+.about-btn:not(:hover):not(:focus) {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 2px 12px #000a;
+    transform: none;
+}
 .about-actions .footer-icon {
     background: #111;
     color: #fff;
@@ -502,6 +548,13 @@ footer {
     background: #fff;
     color: #111;
     transform: scale(1.08);
+}
+
+/* Ensure about actions footer icon hover states are properly reset */
+.about-actions .footer-icon:not(:hover):not(:focus) {
+    background: #111;
+    color: #fff;
+    transform: none;
 }
 .about-actions .footer-icon:hover::before, .about-actions .footer-icon:focus::before {
     background: linear-gradient(100deg, rgba(0,0,0,0.08) 0%, rgba(255,255,255,0.22) 100%);

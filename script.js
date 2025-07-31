@@ -29,6 +29,35 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Fix hover effect persistence issue
+function fixHoverPersistence() {
+    // Get all elements with hover effects
+    const hoverElements = document.querySelectorAll(`
+        .register-btn, .about-btn, .nav-list a, .footer-icon, 
+        .stat, .course-step, .course-highlight-alt, .logo-img,
+        .register-glossy-btn
+    `);
+    
+    hoverElements.forEach(element => {
+        // Add mouseleave event listener to reset hover state
+        element.addEventListener('mouseleave', function() {
+            // Force a reflow to ensure hover state is reset
+            this.style.pointerEvents = 'none';
+            this.offsetHeight; // Trigger reflow
+            this.style.pointerEvents = '';
+        });
+        
+        // Add click event listener to immediately reset hover state
+        element.addEventListener('click', function() {
+            // Force hover state reset on click
+            this.blur();
+            this.style.pointerEvents = 'none';
+            this.offsetHeight; // Trigger reflow
+            this.style.pointerEvents = '';
+        });
+    });
+}
+
 // Smooth transition for Register button
 const registerBtn = document.getElementById('register-btn');
 if (registerBtn) {
@@ -58,6 +87,11 @@ document.querySelectorAll('.nav-list a').forEach(link => {
             }, 600); // Match fadeOutPage animation duration
         }
     });
+});
+
+// Initialize hover fix when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    fixHoverPersistence();
 });
 
 // Placeholder for future interactivity 
