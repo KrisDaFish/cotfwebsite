@@ -12,6 +12,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Mobile menu functionality
+function initMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a');
+    
+    if (mobileMenuToggle && mobileNav) {
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close mobile menu when clicking on a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close mobile menu on window resize (if screen becomes larger)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 575) {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
+
 // Typewriter animation for homepage description
 window.addEventListener('DOMContentLoaded', function() {
     const typewriterEl = document.getElementById('typewriter-text');
@@ -77,21 +120,29 @@ function isInternalNavLink(link) {
         link.pathname.endsWith('.html') &&
         link.href !== window.location.href;
 }
-document.querySelectorAll('.nav-list a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        if (isInternalNavLink(this)) {
-            e.preventDefault();
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = this.href;
-            }, 600); // Match fadeOutPage animation duration
-        }
-    });
-});
 
-// Initialize hover fix when DOM is loaded
+// Handle navigation links (both desktop and mobile)
+function initNavigationLinks() {
+    const allNavLinks = document.querySelectorAll('.nav-list a, .mobile-nav-list a');
+    
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (isInternalNavLink(this)) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 600); // Match fadeOutPage animation duration
+            }
+        });
+    });
+}
+
+// Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     fixHoverPersistence();
+    initMobileMenu();
+    initNavigationLinks();
 });
 
 // Placeholder for future interactivity 
