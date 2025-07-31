@@ -6,145 +6,6 @@
     <title>Register | Coders of the Future</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .register-section {
-            background: #181818;
-            border-radius: 18px;
-            box-shadow: 0 4px 32px #000a;
-            max-width: 900px;
-            margin: 100px auto 48px auto;
-            padding: 48px 32px 48px 32px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 32px;
-        }
-        .register-info {
-            flex: 2 1 340px;
-            min-width: 260px;
-        }
-        .register-title {
-            color: #fff;
-            font-size: 2.2rem;
-            font-weight: 900;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
-        }
-        .register-subtitle {
-            color: #bbb;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 32px;
-            letter-spacing: 0.5px;
-        }
-        .register-dates {
-            color: #fff;
-            font-size: 1.18rem;
-            font-weight: 500;
-            margin-bottom: 18px;
-        }
-        .register-dates span {
-            display: block;
-            margin-bottom: 6px;
-        }
-        .register-note {
-            color: #bbb;
-            font-size: 1rem;
-            margin-bottom: 18px;
-        }
-        .register-more {
-            color: #fff;
-            font-size: 1.08rem;
-            font-weight: 600;
-            margin-top: 18px;
-        }
-        .register-actions {
-            flex: 1 1 260px;
-            min-width: 220px;
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            align-items: center;
-        }
-        .register-glossy-btn {
-            display: block;
-            width: 100%;
-            max-width: 260px;
-            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
-            background-size: 300% 300%;
-            background-position: 0% 50%;
-            color: #222;
-            font-weight: 700;
-            font-size: 1.15rem;
-            padding: 18px 0;
-            border: none;
-            border-radius: 32px;
-            text-decoration: none;
-            box-shadow: 0 2px 16px #000a, 0 1px 0 #fff2 inset;
-            transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            outline: none;
-            position: relative;
-            overflow: hidden;
-            animation: metallic-gradient-move 6s linear infinite alternate;
-        }
-        .register-glossy-btn:hover, .register-glossy-btn:focus {
-            background: linear-gradient(120deg, #e6e7e9 0%, #fff 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #e6e7e9 100%);
-            background-size: 300% 300%;
-            background-position: 100% 50%;
-            color: #111 !important;
-            box-shadow: 0 4px 24px #fff2, 0 2px 12px #000a;
-            transform: translateY(-2px) scale(1.04);
-            animation: metallic-gradient-move 6s linear infinite alternate;
-        }
-        .register-glossy-btn:active {
-            transform: scale(0.97);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.18);
-        }
-        .register-glossy-btn:not(:hover):not(:focus) {
-            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
-            background-size: 300% 300%;
-            background-position: 0% 50%;
-            color: #222;
-            box-shadow: 0 2px 16px #000a, 0 1px 0 #fff2 inset;
-            transform: none;
-        }
-        .register-action-desc {
-            color: #bbb;
-            font-size: 1rem;
-            margin-top: 8px;
-            text-align: center;
-        }
-        @media (max-width: 900px) {
-            .register-section {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 32px 8px 32px 8px;
-            }
-            .register-actions {
-                flex-direction: row;
-                gap: 18px;
-                justify-content: center;
-            }
-        }
-        @media (max-width: 600px) {
-            .register-section {
-                margin: 80px 0 24px 0;
-                padding: 18px 2px 18px 2px;
-            }
-            .register-title {
-                font-size: 1.3rem;
-            }
-            .register-dates {
-                font-size: 1rem;
-            }
-            .register-glossy-btn {
-                font-size: 1rem;
-                padding: 12px 0;
-                max-width: 100%;
-            }
-        }
         .logo-link {
             display: inline-block;
         }
@@ -164,6 +25,148 @@
             transform: none;
             box-shadow: none;
         }
+
+        /* Registration page specific styles */
+        .register-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            padding: 16px 0;
+        }
+        .register-center {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            background: #181818;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px #000a;
+            padding: 40px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 48px;
+        }
+        .register-info {
+            flex: 2 1 400px;
+            min-width: 280px;
+            text-align: left;
+        }
+        .register-label {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #bbb;
+            margin-bottom: 8px;
+        }
+        .register-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 0 0 12px 0;
+            color: #fff;
+        }
+        .register-dates {
+            font-size: 1.1rem;
+            color: #bbb;
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .register-dates span {
+            display: block;
+            margin-bottom: 8px;
+            padding: 8px 0;
+        }
+        .register-dates span:first-child {
+            color: #7ed957;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .register-note {
+            color: #bbb;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border-left: 3px solid #7ed957;
+        }
+        .register-more {
+            color: #7ed957;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 20px;
+            padding: 16px 20px;
+            background: rgba(126, 217, 87, 0.1);
+            border-radius: 16px;
+            border: 1px solid rgba(126, 217, 87, 0.3);
+            text-align: center;
+        }
+        .register-actions {
+            flex: 1 1 300px;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+            justify-content: center;
+        }
+        .register-btn {
+            display: inline-block;
+            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
+            background-size: 300% 300%;
+            background-position: 0% 50%;
+            color: #222;
+            font-weight: 700;
+            font-size: 1.08rem;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 24px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px #000a, 0 1px 0 #fff2 inset;
+            transition: color 0.2s, box-shadow 0.2s, transform 0.15s;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            animation: metallic-gradient-move 6s linear infinite alternate;
+        }
+        .register-btn:hover, .register-btn:focus {
+            background: linear-gradient(120deg, #e6e7e9 0%, #fff 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #e6e7e9 100%);
+            background-size: 300% 300%;
+            background-position: 100% 50%;
+            color: #111 !important;
+            box-shadow: 0 4px 24px #fff2, 0 2px 12px #000a;
+            transform: translateY(-2px) scale(1.04);
+            animation: metallic-gradient-move 6s linear infinite alternate;
+        }
+        .register-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+        }
+        .register-btn:not(:hover):not(:focus) {
+            background: linear-gradient(120deg, #bfc1c6 0%, #e6e7e9 20%, #fff 40%, #bfc1c6 60%, #8a8c8e 80%, #bfc1c6 100%);
+            background-size: 300% 300%;
+            background-position: 0% 50%;
+            color: #222;
+            box-shadow: 0 2px 12px #000a, 0 1px 0 #fff2 inset;
+            transform: none;
+        }
+        .register-action-desc {
+            color: #bbb;
+            font-size: 1rem;
+            margin-top: 12px;
+            text-align: center;
+            line-height: 1.5;
+            padding: 0 16px;
+        }
         .register-fade-in {
             opacity: 0;
             animation: fadeInRegister 1.1s cubic-bezier(.4,2,.6,1) forwards;
@@ -171,6 +174,252 @@
         @keyframes fadeInRegister {
             from { opacity: 0; transform: translateY(30px) scale(0.98); }
             to { opacity: 1; transform: none; }
+        }
+
+        /* Enhanced Responsive Design */
+        
+        /* Large Devices (992px to 1199px) */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .register-center {
+                max-width: 900px;
+                padding: 40px 32px;
+                gap: 40px;
+            }
+            
+            .register-title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Medium Devices (768px to 991px) */
+        @media (max-width: 991px) and (min-width: 768px) {
+            .register-center {
+                max-width: 800px;
+                padding: 36px 28px;
+                gap: 36px;
+            }
+            
+            .register-title {
+                font-size: 1.8rem;
+            }
+            
+            .register-dates {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Small Devices (576px to 767px) */
+        @media (max-width: 767px) and (min-width: 576px) {
+            .register-section {
+                padding: 16px 0;
+            }
+            .register-center {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 32px 20px;
+                gap: 32px;
+            }
+            
+            .register-info {
+                flex: 1 1 100%;
+                min-width: auto;
+                text-align: center;
+            }
+            
+            .register-title {
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            
+            .register-dates {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+            
+            .register-note {
+                font-size: 0.95rem;
+                margin-bottom: 16px;
+            }
+            
+            .register-more {
+                font-size: 1rem;
+                margin-top: 16px;
+            }
+            
+            .register-actions {
+                flex: 1 1 100%;
+                min-width: auto;
+                flex-direction: row;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .register-action-desc {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Extra Small Devices (up to 575px) */
+        @media (max-width: 575px) {
+            .register-section {
+                padding: 16px 0;
+            }
+            .register-center {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 24px 16px;
+                gap: 24px;
+                margin: 0 16px;
+            }
+            
+            .register-info {
+                flex: 1 1 100%;
+                min-width: auto;
+                text-align: center;
+            }
+            
+            .register-title {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .register-dates {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+            
+            .register-dates span {
+                margin-bottom: 6px;
+                padding: 6px 0;
+            }
+            
+            .register-dates span:first-child {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+            
+            .register-note {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+                padding: 10px 12px;
+            }
+            
+            .register-more {
+                font-size: 0.95rem;
+                margin-top: 12px;
+                padding: 12px 16px;
+            }
+            
+            .register-actions {
+                flex: 1 1 100%;
+                min-width: auto;
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+            
+            .register-action-desc {
+                font-size: 0.9rem;
+                margin-top: 8px;
+            }
+        }
+        
+        /* Ultra Small Devices (up to 375px) */
+        @media (max-width: 375px) {
+            .register-center {
+                padding: 20px 12px;
+                gap: 20px;
+            }
+            
+            .register-title {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .register-dates {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .register-dates span:first-child {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            
+            .register-note {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+                padding: 8px 10px;
+            }
+            
+            .register-more {
+                font-size: 0.85rem;
+                margin-top: 10px;
+                padding: 10px 12px;
+            }
+            
+            .register-action-desc {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Landscape orientation adjustments for mobile */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .register-section {
+                padding: 12px 0;
+            }
+            .register-center {
+                padding: 20px 16px;
+                gap: 20px;
+            }
+            
+            .register-title {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .register-dates {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .register-note {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+            
+            .register-more {
+                font-size: 0.85rem;
+                margin-top: 10px;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (max-width: 767px) {
+            .register-btn {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .register-center {
+                border: 2px solid #fff;
+            }
+            
+            .register-btn {
+                border: 2px solid #fff;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .register-btn {
+                animation: none;
+            }
         }
     </style>
 </head>
@@ -210,22 +459,24 @@
     </div>
     <main class="main-content register-fade-in">
         <section class="register-section">
-            <div class="register-info">
-                <div class="register-subtitle">CODERS OF THE FUTURE</div>
-                <div class="register-title">REGISTRATION</div>
-                <div class="register-dates">
-                    <span><strong>START DATES</strong></span>
-                    <span>February 2nd - April 26th</span>
-                    <span>April 24th - July 3rd</span>
-                    <span>July 24th - October 2nd</span>
+            <div class="register-center">
+                <div class="register-info">
+                    <div class="register-label">CODERS OF THE FUTURE</div>
+                    <div class="register-title">REGISTRATION</div>
+                    <div class="register-dates">
+                        <span><strong>START DATES</strong></span>
+                        <span>February 2nd - April 26th</span>
+                        <span>April 24th - July 3rd</span>
+                        <span>July 24th - October 2nd</span>
+                    </div>
+                    <div class="register-note">Every Saturday 6-7 PM IST</div>
+                    <div class="register-more">MORE DATES AND TIMINGS COMING SOON!</div>
                 </div>
-                <div class="register-note">Every Saturday 6-7 PM IST</div>
-                <div class="register-more">MORE DATES AND TIMINGS COMING SOON!</div>
-            </div>
-            <div class="register-actions">
-                <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank" rel="noopener">SIGN UP AS A STUDENT!</a>
-                <div class="register-action-desc">We accept students from anywhere in the world!</div>
-                <a href="mailto:your@email.com" class="register-btn">BECOME A TEACHER!</a>
+                <div class="register-actions">
+                    <a href="https://forms.gle/your-google-form-link" class="register-btn" target="_blank" rel="noopener">SIGN UP AS A STUDENT!</a>
+                    <div class="register-action-desc">We accept students from anywhere in the world!</div>
+                    <a href="mailto:your@email.com" class="register-btn">BECOME A TEACHER!</a>
+                </div>
             </div>
         </section>
     </main>
