@@ -64,7 +64,7 @@
         }
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 32px;
             margin-bottom: 32px;
         }
@@ -72,7 +72,7 @@
             background: #222;
             border: 1px solid #444;
             border-radius: 16px;
-            padding: 32px 24px;
+            padding: 32px 32px;
             box-shadow: 0 4px 16px #0005;
             transition: all 0.3s ease;
             position: relative;
@@ -104,8 +104,9 @@
             font-size: 0.95rem;
             color: #ccc;
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.6;
             font-weight: 400;
+            text-align: justify;
         }
         .member-photo {
             width: 120px;
@@ -154,6 +155,12 @@
         }
 
         /* Responsive design */
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 28px;
+            }
+        }
         @media (max-width: 700px) {
             .team-section {
                 padding: 16px 0;
@@ -225,20 +232,19 @@
                 </p>
                 <div class="team-grid">
                     <div class="team-member">
+                        <div class="member-photo">KP</div>
+                        <h3 class="member-name">Krish Palasamudrum</h3>
+                        <p class="member-role">Founder</p>
+                        <p class="member-desc">
+                            Hello, I'm Krish, and I'm a 15 year old high school student. I've lived in California, United States for most of my life, but just recently, I've moved to Bangalore, India. My passion for coding started when I was around 9 years old. Since then, I've developed video games, websites, and even chrome extensions! I've learnt languages like Python, Lua, JavaScript, and some basic React. Through this course, I hope to share my passion of coding with fellow students.
+                        </p>
+                    </div>
+                    <div class="team-member">
                         <div class="member-photo">AB</div>
                         <h3 class="member-name">Abhimanyu Batta</h3>
                         <p class="member-role">Founder</p>
                         <p class="member-desc">
                             I'm Abhimanyu, a 15 year old, high school student who loves to code. My dream is to make more people enjoy my favorite language (Python) as I do. I've also done a Harvard course called CS50x which helped my understanding in CS to be better and in multiple languages.
-                        </p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">KP</div>
-                        <h3 class="member-name">Krish Palasamudrum</h3>
-                        <p class="member-role">Founder</p>
-                        <p class="member-desc">
-                            Specializing in frontend development with expertise in HTML, CSS, and JavaScript. 
-                            Krish creates responsive and interactive web experiences with modern design principles.
                         </p>
                     </div>
                     <div class="team-member">
