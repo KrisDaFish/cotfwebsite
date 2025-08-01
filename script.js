@@ -138,8 +138,23 @@ function initNavigationLinks() {
     });
 }
 
+// Load global footer
+function loadFooter() {
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            // Insert footer before the closing body tag
+            const body = document.body;
+            body.insertAdjacentHTML('beforeend', data);
+        })
+        .catch(error => {
+            console.error('Error loading footer:', error);
+        });
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    loadFooter();
     fixHoverPersistence();
     initMobileMenu();
     initNavigationLinks();
