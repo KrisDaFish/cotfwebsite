@@ -47,17 +47,13 @@
             box-shadow: 0 8px 32px #000a;
             padding: 40px 40px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            gap: 48px;
-            position: relative;
+            gap: 40px;
         }
         .register-info {
-            flex: 2 1 400px;
-            min-width: 280px;
-            text-align: left;
-            margin-right: 320px;
+            text-align: center;
+            max-width: 600px;
         }
         .register-label {
             font-size: 1rem;
@@ -113,17 +109,11 @@
             text-align: center;
         }
         .register-actions {
-            flex: 1 1 300px;
-            min-width: 250px;
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 24px;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
         }
         .register-btn {
             display: inline-block;
@@ -132,8 +122,8 @@
             background-position: 0% 50%;
             color: #222;
             font-weight: 700;
-            font-size: 1.08rem;
-            padding: 12px 32px;
+            font-size: 1.1rem;
+            padding: 16px 32px;
             border: none;
             border-radius: 24px;
             text-decoration: none;
@@ -145,6 +135,8 @@
             position: relative;
             overflow: hidden;
             animation: metallic-gradient-move 6s linear infinite alternate;
+            width: 600px;
+            text-align: center;
         }
         .register-btn:hover, .register-btn:focus {
             background: linear-gradient(120deg, #e6e7e9 0%, #fff 20%, #bfc1c6 40%, #8a8c8e 60%, #bfc1c6 80%, #e6e7e9 100%);
@@ -222,17 +214,12 @@
                 padding: 16px 0;
             }
             .register-center {
-                flex-direction: column;
-                align-items: stretch;
                 padding: 32px 20px;
                 gap: 32px;
             }
             
             .register-info {
-                flex: 1 1 100%;
-                min-width: auto;
                 text-align: center;
-                margin-right: 0;
             }
             
             .register-title {
@@ -256,13 +243,12 @@
             }
             
             .register-actions {
-                position: static;
-                transform: none;
-                flex: 1 1 100%;
-                min-width: auto;
-                flex-direction: row;
+                flex-direction: column;
                 gap: 20px;
-                justify-content: center;
+            }
+            
+            .register-btn {
+                width: 500px;
             }
             
             .register-action-desc {
@@ -276,18 +262,13 @@
                 padding: 16px 0;
             }
             .register-center {
-                flex-direction: column;
-                align-items: stretch;
                 padding: 24px 16px;
                 gap: 24px;
                 margin: 0 16px;
             }
             
             .register-info {
-                flex: 1 1 100%;
-                min-width: auto;
                 text-align: center;
-                margin-right: 0;
             }
             
             .register-title {
@@ -323,13 +304,12 @@
             }
             
             .register-actions {
-                position: static;
-                transform: none;
-                flex: 1 1 100%;
-                min-width: auto;
                 flex-direction: column;
                 gap: 16px;
-                align-items: center;
+            }
+            
+            .register-btn {
+                width: 450px;
             }
             
             .register-action-desc {
@@ -415,6 +395,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                width: 350px;
             }
         }
         
