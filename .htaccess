@@ -1,8 +1,11 @@
 RewriteEngine On
+Options -MultiViews
 
-# Redirect root URL to home.html
+# Serve home.html when user accesses root /
 RewriteRule ^$ home.html [L]
 
-# Clean URLs: remove .html extension
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
+# Specific clean URLs for each file
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^contact/?$ contact.html [L]
+RewriteRule ^team/?$ meettheteam.html [L]
+RewriteRule ^register/?$ register.html [L]
