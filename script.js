@@ -59,7 +59,7 @@ function initMobileMenu() {
 window.addEventListener('DOMContentLoaded', function() {
     const typewriterEl = document.getElementById('typewriter-text');
     if (typewriterEl) {
-        const text = 'A free program for children aged 10-14 to learn Python.';
+        const text = 'A free program for children aged 9-13 to learn Python.';
         let i = 0;
         function type() {
             if (i <= text.length) {
