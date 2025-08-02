@@ -1,11 +1,15 @@
 RewriteEngine On
 Options -MultiViews
 
-# Serve home.html when user accesses root /
+# Redirect root to home.html
 RewriteRule ^$ home.html [L]
 
-# Specific clean URLs for each file
+# Explicit routes
 RewriteRule ^about/?$ about.html [L]
 RewriteRule ^contact/?$ contact.html [L]
 RewriteRule ^team/?$ meettheteam.html [L]
 RewriteRule ^register/?$ register.html [L]
+
+# Generic rule to remove .html extension fallback
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.html [L]
