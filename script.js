@@ -152,12 +152,40 @@ function loadFooter() {
         });
 }
 
+// Duplicate review cards so the horizontal marquee loops seamlessly
+function initReviewsMarquee() {
+    const track = document.querySelector('.reviews-track');
+    if (!track || track.dataset.cloned === 'true') return;
+
+    const originals = Array.from(track.children);
+
+    originals.forEach(card => { card.style.height = 'auto'; });
+    const maxHeight = Math.max(...originals.map(card => card.offsetHeight));
+    originals.forEach(card => {
+        card.style.height = `${maxHeight}px`;
+    });
+
+    originals.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.style.height = `${maxHeight}px`;
+        track.appendChild(clone);
+    });
+    track.dataset.cloned = 'true';
+
+    const halfWidth = track.scrollWidth / 2;
+    const pixelsPerSecond = 72;
+    const duration = Math.max(halfWidth / pixelsPerSecond, 14);
+    track.style.setProperty('--reviews-duration', `${duration}s`);
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     loadFooter();
     fixHoverPersistence();
     initMobileMenu();
     initNavigationLinks();
+    initReviewsMarquee();
 });
 
 // Placeholder for future interactivity 
