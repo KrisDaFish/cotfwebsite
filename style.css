@@ -88,6 +88,20 @@
     box-sizing: border-box;
 }
 
+/* Hide scrollbars site-wide. Scrolling itself is untouched -- wheel,
+   trackpad, touch, and keyboard all still work; only the visual track is
+   gone. Applied universally so inner scrollers (the code pane, the reviews
+   row) match the page, since scrollbar-width does not inherit. */
+* {
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* legacy Edge */
+}
+
+*::-webkit-scrollbar {          /* Chrome, Safari, Edge */
+    width: 0;
+    height: 0;
+}
+
 html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
