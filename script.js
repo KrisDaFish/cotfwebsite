@@ -1,191 +1,103 @@
-// Smooth scroll for navigation links
+// Coders of the Future — site behaviour
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href.length > 1 && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-// Test for commiting by Krish
-// Mobile menu functionality
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+// Mobile menu ---------------------------------------------------------------
 function initMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a');
-    
-    if (mobileMenuToggle && mobileNav) {
-        // Toggle mobile menu
-        mobileMenuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close mobile menu when clicking on a link
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Close mobile menu on window resize (if screen becomes larger)
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 575) {
-                mobileMenuToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
-}
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.mobile-nav');
+    if (!toggle || !nav) return;
 
-// Typewriter animation for homepage description
-window.addEventListener('DOMContentLoaded', function() {
-    const typewriterEl = document.getElementById('typewriter-text');
-    if (typewriterEl) {
-        const text = 'A free program for children aged 9-13 to learn Python.';
-        let i = 0;
-        function type() {
-            if (i <= text.length) {
-                typewriterEl.textContent = text.slice(0, i);
-                i++;
-                setTimeout(type, 38);
-            }
+    function setOpen(open) {
+        toggle.classList.toggle('active', open);
+        nav.classList.toggle('active', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle.addEventListener('click', () => {
+        setOpen(!nav.classList.contains('active'));
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            setOpen(false);
+            toggle.focus();
         }
-        type();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 860) setOpen(false);
+    });
+}
+
+// Hero prompt ---------------------------------------------------------------
+function initTypewriter() {
+    const el = document.getElementById('typewriter-text');
+    if (!el) return;
+
+    const text = 'A free program for children aged 9-13 to learn Python.';
+
+    if (prefersReducedMotion.matches) {
+        el.textContent = text;
+        return;
     }
-});
 
-// Fix hover effect persistence issue
-function fixHoverPersistence() {
-    // Get all elements with hover effects
-    const hoverElements = document.querySelectorAll(`
-        .register-btn, .about-btn, .nav-list a, .footer-icon, 
-        .stat, .course-step, .course-highlight-alt, .logo-img,
-        .register-glossy-btn
-    `);
-    
-    hoverElements.forEach(element => {
-        // Add mouseleave event listener to reset hover state
-        element.addEventListener('mouseleave', function() {
-            // Force a reflow to ensure hover state is reset
-            this.style.pointerEvents = 'none';
-            this.offsetHeight; // Trigger reflow
-            this.style.pointerEvents = '';
-        });
-        
-        // Add click event listener to immediately reset hover state
-        element.addEventListener('click', function() {
-            // Force hover state reset on click
-            this.blur();
-            this.style.pointerEvents = 'none';
-            this.offsetHeight; // Trigger reflow
-            this.style.pointerEvents = '';
-        });
-    });
+    let i = 0;
+    (function type() {
+        el.textContent = text.slice(0, i);
+        if (i++ <= text.length) setTimeout(type, 38);
+    })();
 }
 
-// Smooth transition for Register button
-const registerBtn = document.getElementById('register-btn');
-if (registerBtn) {
-    registerBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(() => {
-            window.location.href = 'register.html';
-        }, 600); // Match the new fadeOutPage animation duration
-    });
-}
-
-// Smooth transition for all main navigation links
-function isInternalNavLink(link) {
-    // Only animate for links to .html pages in this site, not anchor or external
+// Page transitions ----------------------------------------------------------
+function isInternalLink(link) {
     return link.hostname === window.location.hostname &&
-        link.pathname.endsWith('.html') &&
+        !link.hasAttribute('target') &&
+        !link.getAttribute('href').startsWith('#') &&
         link.href !== window.location.href;
 }
 
-// Handle navigation links (both desktop and mobile)
-function initNavigationLinks() {
-    const allNavLinks = document.querySelectorAll('.nav-list a, .mobile-nav-list a');
-    
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (isInternalNavLink(this)) {
-                e.preventDefault();
-                document.body.classList.add('fade-out');
-                setTimeout(() => {
-                    window.location.href = this.href;
-                }, 600); // Match fadeOutPage animation duration
-            }
+function initPageTransitions() {
+    if (prefersReducedMotion.matches) return;
+
+    document.querySelectorAll('.nav-list a, .mobile-nav-list a, #register-btn').forEach(link => {
+        link.addEventListener('click', function (e) {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || !isInternalLink(this)) return;
+            e.preventDefault();
+            const { href } = this;
+            document.body.classList.add('fade-out');
+            setTimeout(() => { window.location.href = href; }, 280);
         });
     });
 }
 
-// Load global footer
-function loadFooter() {
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            // Insert footer before the closing body tag
-            const body = document.body;
-            body.insertAdjacentHTML('beforeend', data);
-        })
-        .catch(error => {
-            console.error('Error loading footer:', error);
-        });
-}
-
-// Duplicate review cards so the horizontal marquee loops seamlessly
+// Reviews marquee -----------------------------------------------------------
 function initReviewsMarquee() {
     const track = document.querySelector('.reviews-track');
     if (!track || track.dataset.cloned === 'true') return;
 
-    const originals = Array.from(track.children);
-
-    originals.forEach(card => { card.style.height = 'auto'; });
-    const maxHeight = Math.max(...originals.map(card => card.offsetHeight));
-    originals.forEach(card => {
-        card.style.height = `${maxHeight}px`;
-    });
-
-    originals.forEach(card => {
+    Array.from(track.children).forEach(card => {
         const clone = card.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
-        clone.style.height = `${maxHeight}px`;
         track.appendChild(clone);
     });
     track.dataset.cloned = 'true';
 
-    const halfWidth = track.scrollWidth / 2;
-    const pixelsPerSecond = 72;
-    const duration = Math.max(halfWidth / pixelsPerSecond, 14);
+    // Keep the scroll speed constant regardless of how many reviews there are
+    const pixelsPerSecond = 45;
+    const duration = Math.max((track.scrollWidth / 2) / pixelsPerSecond, 20);
     track.style.setProperty('--reviews-duration', `${duration}s`);
 }
 
-// Initialize all functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    loadFooter();
-    fixHoverPersistence();
+document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
-    initNavigationLinks();
+    initTypewriter();
+    initPageTransitions();
     initReviewsMarquee();
 });
-
-// Placeholder for future interactivity 

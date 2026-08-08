@@ -4,298 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coders of the Future</title>
+    <meta name="description" content="A free online Python course for students aged 9-13, taught by high school students.">
     <link rel="icon" type="image/png" href="favicon.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon.png?v=2">
-    <link rel="stylesheet" href="style.css?v=3">
-    <style>
-/* Test2*/
-.logo-link {
-    display: inline-block;
-}
-.logo-img {
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
-    will-change: transform;
-}
-.logo-img:hover {
-    transform: scale(1.12) rotate(-8deg);
-    box-shadow: 0 4px 24px #e6e7e988;
-    cursor: pointer;
-}
-.logo-img:active {
-    transform: scale(0.96) rotate(-2deg);
-}
-.logo-img:not(:hover) {
-    transform: none;
-    box-shadow: none;
-}
-.course-highlight {
-    margin: 32px auto 0 auto;
-    max-width: 600px;
-    background: linear-gradient(120deg, #232323 60%, #2c2c2c 100%);
-    border: 2px solid #e6e7e9cc;
-    border-radius: 20px;
-    box-shadow: 0 4px 32px #000a, 0 1.5px 0 #fff2 inset;
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 32px 28px 28px 28px;
-    position: relative;
-    z-index: 2;
-    animation: fadeInHighlight 1.1s cubic-bezier(.4,2,.6,1);
-}
-.highlight-icon {
-    font-size: 2.2rem;
-    color: #e6e7e9;
-    margin-right: 10px;
-    margin-top: 2px;
-    filter: drop-shadow(0 0 8px #fff8);
-    flex-shrink: 0;
-}
-.course-highlight h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.5px;
-}
-.course-highlight p {
-    margin: 0;
-    color: #bbb;
-    font-size: 1.08rem;
-    font-weight: 500;
-}
-@keyframes fadeInHighlight {
-    from { opacity: 0; transform: translateY(30px) scale(0.98); }
-    to { opacity: 1; transform: none; }
-}
-@media (max-width: 700px) {
-    .course-highlight {
-        padding: 18px 8px 18px 8px;
-        gap: 10px;
-    }
-    .highlight-icon {
-        font-size: 1.5rem;
-    }
-    .course-highlight h3 {
-        font-size: 1.05rem;
-    }
-    .course-highlight p {
-        font-size: 0.98rem;
-    }
-}
-.course-highlight-alt {
-    margin: 32px auto 0 auto;
-    max-width: 600px;
-    background: #181818;
-    border-radius: 18px;
-    box-shadow: 0 2px 16px #0007;
-    padding: 36px 24px 28px 24px;
-    text-align: left;
-    display: block;
-    animation: fadeInHighlight 1.1s cubic-bezier(.4,2,.6,1);
-    transition: box-shadow 0.2s, transform 0.15s;
-}
-.course-highlight-alt:hover {
-    box-shadow: 0 6px 32px #000b;
-    transform: translateY(-2px) scale(1.03);
-}
-.course-highlight-alt:not(:hover) {
-    box-shadow: 0 2px 16px #0007;
-    transform: none;
-}
-.course-highlight-alt h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.2px;
-}
-.course-highlight-alt p {
-    margin: 0;
-    color: #bbb;
-    font-size: 1.01rem;
-    font-weight: 500;
-    line-height: 1.6;
-}
-@media (max-width: 700px) {
-    .course-highlight-alt {
-        padding: 24px 10px 18px 10px;
-    }
-    .course-highlight-alt h3 {
-        font-size: 1.05rem;
-    }
-    .course-highlight-alt p {
-        font-size: 0.98rem;
-    }
-}
-.fade-in-highlight {
-    animation: fadeInHighlight 1.1s cubic-bezier(.4,2,.6,1);
-}
-.features-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin: 64px 0 32px 0;
-    flex-wrap: wrap;
-}
-.feature-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 800;
-    border-radius: 20px;
-    border: 1px solid #333;
-    box-shadow: 0 4px 24px #0008, 0 1px 0 #fff1 inset;
-    padding: 38px 44px;
-    text-align: center;
-    min-width: 120px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: 1px;
-    cursor: default;
-    user-select: none;
-    position: relative;
-    overflow: hidden;
-}
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s;
-}
-.feature-card:hover::before {
-    left: 100%;
-}
-.feature-card:hover {
-    box-shadow: 0 8px 40px #000c, 0 2px 0 #fff2 inset;
-    background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
-    transform: translateY(-4px) scale(1.05);
-    border-color: #444;
-}
-.feature-desc {
-    font-size: 1rem;
-    color: #bbb;
-    font-weight: 400;
-    margin-top: 10px;
-    letter-spacing: 0.2px;
-}
-@media (max-width: 700px) {
-    .features-section {
-        gap: 14px;
-    }
-    .feature-card {
-        font-size: 1.2rem;
-        padding: 18px 18px;
-        min-width: 80px;
-    }
-    .feature-desc {
-        font-size: 0.92rem;
-    }
-}
-</style>
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <header class="main-header">
         <div class="logo-nav">
-            <div class="logo">
-                <a href="/home" class="logo-link"><img src="logo.png" alt="Logo" width="56" height="56" style="display:block;" class="logo-img" /></a>
-                <span class="logo-text">CODERS OF<br>THE FUTURE</span>
-            </div>
-            <nav>
+            <a href="/home" class="logo">
+                <img src="logo.png" alt="" width="40" height="40" class="logo-img">
+                <span class="logo-text">Coders of<br>the Future</span>
+            </a>
+            <nav aria-label="Main">
                 <ul class="nav-list">
-                    <li><a href="/home" class="active">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/meettheteam">Meet the Team</a></li>
+                    <li><a href="/home" class="active" aria-current="page">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/meettheteam">Team</a></li>
+                    <li><a href="/contact">Contact</a></li>
                     <li><a href="/register">Register</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <button class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </header>
-    
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav">
+
+    <div class="mobile-nav" id="mobile-nav">
         <ul class="mobile-nav-list">
-            <li><a href="/home" class="active">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/meettheteam">Meet the Team</a></li>
+            <li><a href="/home" class="active" aria-current="page">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/meettheteam">Team</a></li>
+            <li><a href="/contact">Contact</a></li>
             <li><a href="/register">Register</a></li>
-            <li><a href="/contact">Contact Us</a></li>
         </ul>
     </div>
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-text" style="text-align:center; margin: 0 auto;">
-                <h1>Welcome to<br>Coders of the Future</h1>
-                <h3 class="for-students" id="typewriter-text"></h3>
-                <a href="/register" class="register-btn" id="register-btn">Register</a>
+
+    <main class="main-content page-content">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">for students, by students</p>
+                <h1 class="hero-title">Welcome to Coders of the Future</h1>
+                <p class="hero-terminal"><span id="typewriter-text"></span><span class="caret" aria-hidden="true"></span></p>
+                <div class="btn-row">
+                    <a href="/register" class="btn btn--primary" id="register-btn">Register</a>
+                    <a href="#course" class="btn btn--ghost">See what you'll learn</a>
+                </div>
+                <p class="hero-meta">
+                    <span>Free</span>
+                    <span>Online</span>
+                    <span>Ages 9&ndash;13</span>
+                    <span>No experience needed</span>
+                </p>
+            </div>
+
+            <div class="code-pane" aria-hidden="true">
+                <div class="code-pane-bar">hello.py</div>
+                <pre><code><span class="ln"><span class="tok-comment"># your first program</span></span><span class="ln">name = <span class="tok-fn">input</span>(<span class="tok-str">"What's your name? "</span>)</span><span class="ln"></span><span class="ln"><span class="tok-key">for</span> i <span class="tok-key">in</span> <span class="tok-fn">range</span>(3):</span><span class="ln ln--indented">    <span class="tok-fn">print</span>(<span class="tok-str">"Hi "</span> + name + <span class="tok-str">"!"</span>)</span></code></pre>
             </div>
         </section>
-        <section class="features-section">
-            <div class="feature-card" style="width:100%;text-align:center;font-size:1.5rem;font-weight:700;letter-spacing:1px;">For Students By Students.</div>
-        </section>
-        <section class="course-section">
-            <h2 class="course-title">What You Will Do In This Course</h2>
-            <div class="course-steps">
-                <div class="course-step fade-in-highlight">
-                    <span class="step-number step1">01</span>
-                    <h3>Learn the fundamentals and basics of programming</h3>
-                    <p>This includes the logic behind programming, and the thought-processes. This part of the course will involve interactive activities so students thoroughly understand the concepts, while also having fun.</p>
-                </div>
-                <div class="course-step fade-in-highlight">
-                    <span class="step-number step2">02</span>
-                    <h3>Learn how to start coding Python</h3>
-                    <p>Learn how to use the logic behind coding in a practical setting. This includes learning how to convey logical operations through flowcharts and diagrams, and then later implementing these operations through Python. Using this knowledge, they will learn how to solve basic problems using code/Python.</p>
-                </div>
-                <div class="course-step fade-in-highlight">
-                    <span class="step-number step3">03</span>
-                    <h3>Make your first project in Python</h3>
-                    <p>After learning and developing basic problem-solving skills, use these skills to make your first coding project in Python!</p>
-                </div>
+
+        <section class="section" id="course">
+            <div class="section-head">
+                <p class="eyebrow">the course</p>
+                <h2 class="section-title">What you'll do, step by step</h2>
+                <p class="section-sub">Three stages, each one building on the last &mdash; just like the code you'll write.</p>
             </div>
-            <div class="course-highlight-alt fade-in-highlight">
-                <h3>Absolute Beginners Welcome!</h3>
-                <p>This course is made for absolute beginners in coding and programming! It requires zero prior knowledge or experience, so don't feel intimidated!</p>
+
+            <ol class="steps">
+                <li class="step" style="--depth:0">
+                    <span class="step-marker">01</span>
+                    <div>
+                        <h3>Learn the fundamentals of programming</h3>
+                        <p>This includes the logic behind programming, and the thought-processes. This part of the course will involve interactive activities so students thoroughly understand the concepts, while also having fun.</p>
+                    </div>
+                </li>
+                <li class="step" style="--depth:1">
+                    <span class="step-marker">02</span>
+                    <div>
+                        <h3>Start coding in Python</h3>
+                        <p>Learn how to use the logic behind coding in a practical setting. This includes learning how to convey logical operations through flowcharts and diagrams, and then later implementing these operations through Python. Using this knowledge, they will learn how to solve basic problems using code.</p>
+                    </div>
+                </li>
+                <li class="step" style="--depth:2">
+                    <span class="step-marker">03</span>
+                    <div>
+                        <h3>Build your first Python project</h3>
+                        <p>After learning and developing basic problem-solving skills, use these skills to make your first coding project in Python!</p>
+                    </div>
+                </li>
+            </ol>
+
+            <div class="beginner-note">
+                <h3>Absolute beginners welcome</h3>
+                <p>This course is made for absolute beginners in coding and programming. It requires zero prior knowledge or experience, so don't feel intimidated.</p>
             </div>
         </section>
+
         <section class="reviews-section">
-            <h2 class="course-title">What Our Students Say</h2>
+            <div class="section-head">
+                <p class="eyebrow">student reviews</p>
+                <h2 class="section-title">What our students say</h2>
+            </div>
             <div class="reviews-marquee">
                 <div class="reviews-track">
-                    <div class="review-card">
-                        <span class="review-quote-mark">&ldquo;</span>
-                        <p class="review-text">I didn&rsquo;t know how to make lists or know and float commands but now I know how to use float commands.</p>
-                        <span class="review-author">Neha Garg</span>
-                    </div>
-                    <div class="review-card">
-                        <span class="review-quote-mark">&ldquo;</span>
+                    <figure class="review-card">
+                        <p class="review-text">I didn't know how to make lists or know and float commands but now I know how to use float commands.</p>
+                        <figcaption class="review-author">Neha Garg</figcaption>
+                    </figure>
+                    <figure class="review-card">
                         <p class="review-text">I found the course useful because it could prepare me for any future projects that I might have that are about coding.</p>
-                        <span class="review-author">Shivanjali More</span>
-                    </div>
-                    <div class="review-card">
-                        <span class="review-quote-mark">&ldquo;</span>
+                        <figcaption class="review-author">Shivanjali More</figcaption>
+                    </figure>
+                    <figure class="review-card">
                         <p class="review-text">Personally, my favourite part of the course was actually the active learning process at the end, since it engaged me to execute the programs or concepts of what I had learnt while the class was going on. This course requires very little mentoring, since it has already been able to teach complicated concepts within a short span of time and also ensuring constant interaction with the students.</p>
-                        <span class="review-author">Guruprasad Aswatha</span>
-                    </div>
-                    <div class="review-card">
-                        <span class="review-quote-mark">&ldquo;</span>
+                        <figcaption class="review-author">Guruprasad Aswatha</figcaption>
+                    </figure>
+                    <figure class="review-card">
                         <p class="review-text">This course helped me reignite my curiosity for the language and improve my previous knowledge. A great aspect of this class is your readiness to clear our never ending list of doubts, and easygoing attitude that helped the class stay lively and focused as well.</p>
-                        <span class="review-author">Arshiya</span>
-                    </div>
+                        <figcaption class="review-author">Arshiya</figcaption>
+                    </figure>
                 </div>
+            </div>
+        </section>
+
+        <section class="cta-panel">
+            <p class="eyebrow">next class</p>
+            <h2>Saturdays, starting September 5</h2>
+            <p>Classes run online every Saturday for an hour. It's free, and we accept students from anywhere in the world.</p>
+            <div class="btn-row">
+                <a href="/register" class="btn btn--primary">Register</a>
+                <a href="/contact" class="btn btn--ghost">Ask a question</a>
             </div>
         </section>
     </main>
-    <!-- Footer will be loaded dynamically -->
-    <script src="script.js?v=3"></script>
+
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong>Coders of the Future</strong>
+                Founded by Krish Palasamudrum, Amogh Pindikur, and Abhimanyu Batta<br>
+                Website designed by Krish Palasamudrum, Amogh Pindikur, and Abhimanyu Batta
+            </div>
+            <div class="footer-icons">
+                <a href="/contact" class="footer-icon" aria-label="Contact us on Facebook"><img src="facebooklogo.png" alt="" width="20" height="20"></a>
+                <a href="/contact" class="footer-icon" aria-label="Contact us by email"><img src="gmaillogo.png" alt="" width="20" height="20"></a>
+                <a href="/contact" class="footer-icon" aria-label="Contact us on Instagram"><img src="instagramlogo.png" alt="" width="20" height="20"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=4"></script>
 </body>
-</html> 
+</html>
