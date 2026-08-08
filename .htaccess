@@ -13,3 +13,26 @@ RewriteRule ^register/?$ register.html [L]
 # Generic rule to remove .html extension fallback
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.html [L]
+
+# Caching
+# Pages must revalidate on every visit, otherwise a browser keeps serving
+# markup from before the last deploy -- which points at the old ?v= asset
+# URLs, so that page renders the old design while others render the new one.
+# Revalidation is cheap: unchanged pages come back as a 304.
+<IfModule mod_headers.c>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
+    # style.css and script.js carry a ?v= version, so they are safe to cache
+    # hard -- bump the version to publish a change.
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+
+    # Images are unversioned, so keep the window short enough that replacing
+    # one shows up without a stale month.
+    <FilesMatch "\.(png|jpe?g|gif|svg|webp|ico|woff2?)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>
